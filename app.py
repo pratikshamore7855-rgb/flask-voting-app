@@ -32,6 +32,12 @@ def vote(name):
 def results():
     return jsonify(votes)
 
+@app.route("/reset")
+def reset():
+    votes.clear()
+    return jsonify({
+        "message": "All votes have been reset"
+    })
 
 if __name__ == "__main__":
     app.run(debug=True)
